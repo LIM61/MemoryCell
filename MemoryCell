@@ -1,0 +1,36 @@
+public class MemoryCell<AnyType> {
+	private AnyType storedValue;
+
+	public AnyType read() {
+		return storedValue; // read
+	}
+
+	public void write(AnyType x) {
+		storedValue = x; // write
+	}
+
+	public static void main(String[] args) {
+		
+		
+		MemoryCell<String> m = new MemoryCell<String>();
+		// put something in it
+		m.write("Banana");
+
+		// now read it back...
+		String value = m.read();
+
+		System.out.println(value);
+		
+		
+		MemoryCell<Integer> m2 = new MemoryCell<Integer>();
+		m2.write(9);
+		squareCell(m2);
+		System.out.println(m2.read());
+		
+	}
+
+	public static void squareCell(MemoryCell<Integer> m) {
+		Integer value = m.read();
+		m.write(value*value);
+	}
+	
